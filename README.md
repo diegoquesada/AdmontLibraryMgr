@@ -1,8 +1,8 @@
-﻿# AdmontLibraryMgr
+# AdmontLibraryMgr
 A library management solution built with ASP.net Core.
 
 ## Problem
-I have no good way to keep track of the books in my personal library, or to consult the list from anywhere.
+No good system exists to keep track of the books in my personal library.
 
 ## Goal
 Organize key information about my personal library, in a way that makes it easy to consult the list.
@@ -29,4 +29,3 @@ Organize key information about my personal library, in a way that makes it easy 
 * The system must be built using modern front end technologies such as Node.js/Mongodb/React.
 * The system should use TDD.
 * The system should be deployed on the public internet.
-
