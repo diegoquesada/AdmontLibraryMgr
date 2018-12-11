@@ -1,0 +1,67 @@
+﻿@page
+@model AdmontLibraryMgr.Pages.Books.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Author)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.Author)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Language)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.Language)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.PublishYear)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.PublishYear)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Publisher)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.Publisher)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Subject)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.Subject)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.DeweyNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.DeweyNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.DateAcquired)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.DateAcquired)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Book.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
