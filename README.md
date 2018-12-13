@@ -26,6 +26,6 @@ Organize key information about my personal library, in a way that makes it easy 
 * The system must allow entering new books easily
 * The system must allow correcting information on books
 * The system must allow running queries using any of the data points in 1.
-* The system must be built using modern front end technologies such as Node.js/Mongodb/React.
+* The system must be built using modern front end technologies such as ASP.net or Node.js/Mongodb/React.
 * The system should use TDD.
 * The system should be deployed on the public internet.
