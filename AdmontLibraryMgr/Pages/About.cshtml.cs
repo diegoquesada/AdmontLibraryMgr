@@ -12,7 +12,7 @@ namespace AdmontLibraryMgr.Pages
 
         public void OnGet()
         {
-            Message = "Your application description page.";
+            Message = "Admont Library Manager";
         }
     }
 }
