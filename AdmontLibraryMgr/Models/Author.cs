@@ -15,5 +15,7 @@ namespace AdmontLibraryMgr.Models
         [DataType(DataType.Date)]
         [Display(Name = "Date of Birth")]
         public DateTime DateOfBirth { get; set; }
+
+        public string Country { get; set; }
     }
 }

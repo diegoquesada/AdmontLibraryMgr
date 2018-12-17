@@ -43,8 +43,56 @@ namespace AdmontLibraryMgr.Models
                         Subject = "Christianity; Papacy",
                         DeweyNumber = "",
                         DateAcquired = DateTime.Parse("2018-10-18")
+                    },
+                    new Book
+                    {
+                        Title = "Dynamics of Software Development",
+                        Author = "McCarthy, Jim",
+                        Language = "English",
+                        PublishYear = 1995,
+                        Publisher = "Microsoft Press",
+                        Subject = "Computer software development",
+                        DeweyNumber = "005.1'068",
+                        DateAcquired = DateTime.Parse("2014-1-1")
+                    },
+                    new Book
+                    {
+                        Title = "The Annotated Hans Christian Andersen",
+                        Author = "Andersen, Hans Christian",
+                        Language = "English",
+                        PublishYear = 2008,
+                        Publisher = "W. W. Norton & Company",
+                        Subject = "Fairy tales",
+                        DeweyNumber = "",
+                        DateAcquired = DateTime.Parse("2018-4-1")
                     }
+
                 );
+                context.Author.AddRange(
+                    new Author
+                    {
+                        FirstName = "Peter",
+                        LastName = "Ackroyd",
+                        DateOfBirth = DateTime.Parse("1949-10-5"),
+                        Country = "United Kingdom"
+                    },
+                    new Author
+                    {
+                        FirstName = "Rupert",
+                        LastName = "Matthews"
+                    },
+                    new Author
+                    {
+                        FirstName = "Jim",
+                        LastName = "McCarthy"
+                    },
+                    new Author
+                    {
+                        FirstName = "Hans Christian",
+                        LastName = "Andersen",
+                        DateOfBirth = DateTime.Parse("1805-04-02"),
+                        Country = "Denmark"
+                    });
                 context.SaveChanges();
             }
         }
