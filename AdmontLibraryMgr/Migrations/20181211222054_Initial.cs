@@ -27,29 +27,12 @@ namespace AdmontLibraryMgr.Migrations
                 {
                     table.PrimaryKey("PK_Book", x => x.ID);
                 });
-            migrationBuilder.CreateTable(
-                name: "Author",
-                columns: table => new
-                {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    DateOfBirth = table.Column<DateTime>(nullable: true),
-                    Country = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Author", x => x.ID);
-                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Book");
-            migrationBuilder.DropTable(
-                name: "Author");
         }
     }
 }

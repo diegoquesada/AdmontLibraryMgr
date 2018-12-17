@@ -4,14 +4,16 @@ using AdmontLibraryMgr.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AdmontLibraryMgr.Migrations
 {
     [DbContext(typeof(AdmontContext))]
-    partial class AdmontContextModelSnapshot : ModelSnapshot
+    [Migration("20181217194751_AuthorsTable")]
+    partial class AuthorsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
