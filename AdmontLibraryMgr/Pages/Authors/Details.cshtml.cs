@@ -27,7 +27,9 @@ namespace AdmontLibraryMgr.Pages.Authors
                 return NotFound();
             }
 
-            Author = await _context.Author.FirstOrDefaultAsync(m => m.ID == id);
+            Author = await _context.Author.Include(s => s.Books)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.ID == id);
 
             if (Author == null)
             {

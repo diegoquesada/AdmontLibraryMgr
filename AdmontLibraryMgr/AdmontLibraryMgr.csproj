@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20181217194057_AuthorsTable.cs" />
     <Compile Remove="Migrations\20181217194057_AuthorsTable.Designer.cs" />
+    <Compile Remove="Migrations\20190109211428_AddAuthorTable.cs" />
+    <Compile Remove="Migrations\20190109211428_AddAuthorTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

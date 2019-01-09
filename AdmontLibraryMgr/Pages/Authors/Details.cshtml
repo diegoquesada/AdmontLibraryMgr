@@ -35,6 +35,28 @@
         <dd>
             @Html.DisplayFor(model => model.Author.Country)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Author.Books)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Book Title</th>
+                    <th>Year Published</th>
+                </tr>
+                @foreach (var item in Model.Author.Books)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PublishYear)
+                        </td>
+                    </tr>
+                }
+            </table>foreach
+        </dd>
     </dl>
 </div>
 <div>

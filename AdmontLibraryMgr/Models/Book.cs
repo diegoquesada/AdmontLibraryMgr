@@ -14,7 +14,6 @@ namespace AdmontLibraryMgr.Models
         [Required]
         public string Title { get; set; }
 
-        public string Author { get; set; }
         public string Language { get; set; }
 
         [Range(1000, 2500)]
@@ -32,7 +31,7 @@ namespace AdmontLibraryMgr.Models
         [Display(Name = "Date Acquired")]
         public DateTime DateAcquired { get; set; }
 
-        //public int AuthorID { get; set; }
-        //public Author Author { get; set; }
+        public int AuthorID { get; set; }
+        public Author Author { get; set; }
     }
 }

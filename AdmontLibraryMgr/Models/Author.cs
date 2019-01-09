@@ -17,5 +17,7 @@ namespace AdmontLibraryMgr.Models
         public DateTime DateOfBirth { get; set; }
 
         public string Country { get; set; }
+
+        public ICollection<Book> Books { get; set; }
     }
 }
