@@ -18,11 +18,18 @@ namespace AdmontLibraryMgr.Pages.Authors
             _context = context;
         }
 
-        public IList<Author> Author { get;set; }
+        public PaginatedList<Author> Author { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int? pageIndex)
         {
-            Author = await _context.Author.ToListAsync();
+            //           Author = await _context.Author.ToListAsync();
+
+            // This queryable object will allow us to sort the list
+            // according to the sort criteria passed to the method.
+            IQueryable<Author> authorIQ = from a in _context.Author select a;
+
+            int pageSize = 10;
+            Author = await PaginatedList<Author>.CreateAsync(authorIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
         }
     }
 }

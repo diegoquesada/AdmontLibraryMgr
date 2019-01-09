@@ -19,7 +19,6 @@ namespace AdmontLibraryMgr.Pages.Books
         }
 
         public string TitleSort { get; set; }
-        public string AuthorSort { get; set; }
         public string PublishYearSort { get; set; }
         public string SubjectSort { get; set; }
         public string CurrentFilter { get; set; }
@@ -29,9 +28,9 @@ namespace AdmontLibraryMgr.Pages.Books
 
         public async Task OnGetAsync(string sortOrder, string currentFilter, string searchString, int? pageIndex)
         {
+            // Set up properties used to keep track of our current sorting options.
             CurrentSort = sortOrder;
             TitleSort = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
-            AuthorSort = sortOrder == "author" ? "author_desc" : "author";
             PublishYearSort = sortOrder == "PublishYear" ? "publishyear_desc" : "publishyear";
             SubjectSort = sortOrder == "Subject" ? "subject_desc" : "subject";
 
@@ -62,12 +61,6 @@ namespace AdmontLibraryMgr.Pages.Books
                 case "title_desc":
                     bookIQ = bookIQ.OrderByDescending(s => s.Title);
                     break;
-                case "author":
-                    bookIQ = bookIQ.OrderBy(s => s.Author);
-                    break;
-                case "author_desc":
-                    bookIQ = bookIQ.OrderByDescending(s => s.Author);
-                    break;
                 case "publishyear":
                     bookIQ = bookIQ.OrderBy(s => s.PublishYear);
                     break;
@@ -85,7 +78,7 @@ namespace AdmontLibraryMgr.Pages.Books
                     break;
             }
 
-            int pageSize = 3;
+            int pageSize = 10;
             Book = await PaginatedList<Book>.CreateAsync(bookIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
         }
     }

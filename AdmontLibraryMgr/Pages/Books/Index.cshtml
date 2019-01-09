@@ -31,11 +31,6 @@
                 </a>
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.AuthorSort" asp-route-currentFilter="@Model.CurrentFilter">
-                    @Html.DisplayNameFor(model => model.Book[0].Author)
-                </a>
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Book[0].Language)
             </th>
             <th>
@@ -66,9 +61,6 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Author)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Language)
