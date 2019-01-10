@@ -79,7 +79,7 @@ namespace AdmontLibraryMgr.Pages.Books
             }
 
             int pageSize = 10;
-            Book = await PaginatedList<Book>.CreateAsync(bookIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
+            Book = await PaginatedList<Book>.CreateAsync(bookIQ.Include(b => b.Author).AsNoTracking(), pageIndex ?? 1, pageSize);
         }
     }
 }

@@ -27,7 +27,10 @@ namespace AdmontLibraryMgr.Pages.Books
                 return NotFound();
             }
 
-            Book = await _context.Book.FirstOrDefaultAsync(m => m.ID == id);
+            Book = await _context.Book
+                .AsNoTracking()
+                .Include(b => b.Author)
+                .FirstOrDefaultAsync(m => m.ID == id);
 
             if (Book == null)
             {

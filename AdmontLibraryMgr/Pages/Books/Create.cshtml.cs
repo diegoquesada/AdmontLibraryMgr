@@ -9,7 +9,7 @@ using AdmontLibraryMgr.Models;
 
 namespace AdmontLibraryMgr.Pages.Books
 {
-    public class CreateModel : PageModel
+    public class CreateModel : AuthorNamePageModel
     {
         private readonly AdmontLibraryMgr.Models.AdmontContext _context;
 
@@ -20,6 +20,7 @@ namespace AdmontLibraryMgr.Pages.Books
 
         public IActionResult OnGet()
         {
+            PopulateAuthorsDropDownList(_context);
             return Page();
         }
 
@@ -33,10 +34,20 @@ namespace AdmontLibraryMgr.Pages.Books
                 return Page();
             }
 
-            _context.Book.Add(Book);
-            await _context.SaveChangesAsync();
+            var emptyBook = new Book();
 
-            return RedirectToPage("./Index");
+            if (await TryUpdateModelAsync<Book>(
+                emptyBook,
+                "book",
+                s => s.ID, s => s.AuthorID, s => s.Title, s => s.PublishYear))
+            {
+                _context.Book.Add(emptyBook);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
+
+            PopulateAuthorsDropDownList(_context, emptyBook.AuthorID);
+            return Page();
         }
     }
 }
