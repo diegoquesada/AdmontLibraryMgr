@@ -36,7 +36,11 @@ namespace AdmontLibraryMgr
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<AdmontContext>(options =>
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+                services.AddDbContext<AdmontContext>(options =>
+                        options.UseSqlServer(Configuration.GetConnectionString("AzureConnection")));
+            else
+                services.AddDbContext<AdmontContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("AdmontContext")));
         }
 
