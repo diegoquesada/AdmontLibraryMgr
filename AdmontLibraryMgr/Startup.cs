@@ -11,14 +11,18 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using AdmontLibraryMgr.Models;
+using Microsoft.Extensions.Logging;
 
 namespace AdmontLibraryMgr
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly ILogger _logger;
+
+        public Startup(IConfiguration configuration, ILogger<Startup> logger)
         {
             Configuration = configuration;
+            _logger = logger;
         }
 
         public IConfiguration Configuration { get; }
@@ -35,6 +39,9 @@ namespace AdmontLibraryMgr
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            string MyEnvironment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            _logger.LogError("Detected environment: " + MyEnvironment);
 
             if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
                 services.AddDbContext<AdmontContext>(options =>
